@@ -9,8 +9,48 @@ const jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code will go here
 
+
+// Your code will go here
+class CrewMember{
+  constructor(_name, _job, _specialSkill)
+  {
+    this.name = _name, 
+    this.job = _job
+    this.specialSkill = _specialSkill
+    this.ship = null
+  }
+  enterShip(_ship)
+{
+  this.ship = _ship
+  _ship.crew.push(this)
+}
+}
+
+class Ship{
+constructor (_name, _type, _ability)
+{
+  this.name = _name,
+  this.type = _type, 
+  this.ability = _ability
+}
+crew = []
+
+
+missionStatement() {
+  if ((!this.crew.length)) {
+    return "Can't perform a mission yet.";
+  } else {
+    return this.ability;
+  }}
+}
+
+
+const crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+console.log(crewMember1.name)
+
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+crewMember1.enterShip(mav);
 
 
 
